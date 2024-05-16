@@ -9,6 +9,7 @@ Essa estrutura já está dockerizada, então basta ter o docker compose rodando 
 - PHP 8.3
 - MySQL
 - nginx
+- Laravel 11
 
 ## Como usar
 
@@ -17,7 +18,7 @@ Primeiro basta clonar o repositório
 `git clone bla bla bla`
 
 Agora entre na pasta com o terminal 
-`cd setup-php-docker`
+`cd setup-laravel-docker`
 
 E agora basta rodar o docker
 
