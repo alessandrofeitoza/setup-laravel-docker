@@ -26,4 +26,15 @@ E agora basta rodar o docker
 
 Pronto,é sucesso!
 
-Acesse o http://localhost:8080
+## Instalar
+
+Entre no container:
+
+`docker-compose exec php bash`
+
+E execute o composer install:
+
+`composer install`
+
+
+Pronto, agora acesse o http://localhost:8080
