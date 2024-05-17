@@ -17,7 +17,7 @@ Route::prefix('/bebidas')
     ->controller(DrinkController::class)
     ->group(function () {
         Route::get('/', 'listAll');
-        Route::get('/adicionar', 'add');
+        Route::any('/adicionar', 'add');
         Route::get('/editar/{id}', 'edit');
         Route::get('/excluir/{id}', 'delete');
     });
