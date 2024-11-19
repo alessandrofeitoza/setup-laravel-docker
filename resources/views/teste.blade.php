@@ -1,3 +1,0 @@
-<button>
-    Oi som
-</button>
