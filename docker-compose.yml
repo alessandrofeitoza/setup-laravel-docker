@@ -44,7 +44,7 @@ services:
     environment:
       MYSQL_DATABASE: db_laravel
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
+      MYSQL_USER: developer
       MYSQL_PASSWORD: 123456
 
 networks:
