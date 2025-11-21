@@ -36,4 +36,4 @@ docker compose exec -T php php artisan migrate
 ```
 
 
-Pronto, deve estar rodando em <http://localhost:8000>
+Pronto, deve estar rodando em <http://localhost:8080>
