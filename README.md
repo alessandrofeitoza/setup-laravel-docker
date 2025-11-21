@@ -22,17 +22,17 @@ docker compose exec -T php composer install
 
 5. Gerar chaves do Laravel
 ```shell
-docker compose exec -T php artisan key:generate  
+docker compose exec -T php php artisan key:generate  
 ```
 
 6. Copiar .env
 ```shell
-docker compose exec -T php "cp .env.example .env" 
+docker compose exec -T php cp .env.example .env 
 ```
 
 7. Atualizar o banco
 ```shell
-docker compose exec -T php "artisan migrate" 
+docker compose exec -T php php artisan migrate 
 ```
 
 
