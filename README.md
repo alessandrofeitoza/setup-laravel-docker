@@ -35,5 +35,11 @@ docker compose exec -T php php artisan key:generate
 docker compose exec -T php php artisan migrate 
 ```
 
+8. Adicionar dados falsos no banco
+```shell
+docker compose exec -T php php artisan db:seed 
+```
 
+
+Pronto, deve estar rodando em <http://localhost:8080>
 Pronto, deve estar rodando em <http://localhost:8080>
