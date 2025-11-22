@@ -7,6 +7,13 @@ up_build:
 bash:
 	docker compose exec php bash
 
+
+fresh:
+	docker compose exec php php artisan migrate:fresh
+
+seed:
+	docker compose exec php php artisan db:seed
+
 down:
 	docker compose down
 
