@@ -1,8 +1,10 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+@extends('components.layout')
 
-<div class="m-5 p-5">
-    <a href="{{ route('anuncios.index') }}">Voltar</a>
-</div>
+@section('conteudo')
+@include('components.actionButton', [
+    'href' => route('anuncios.index'),
+    'text' => 'Voltar'
+])
 
 <form action="{{ route('anuncios.store') }}" method="POST">
     @csrf
@@ -53,3 +55,5 @@
         Salvar
     </button>
 </form>
+
+@endsection

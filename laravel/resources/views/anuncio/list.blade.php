@@ -1,43 +1,47 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+@extends('components.layout')
 
-<div class="m-5 p-5">
-    <a href="{{ route('anuncios.create') }}">Adicionar novo</a>
-</div>
+@section('conteudo')
 
-<table class="table table-hover table-striped">
-    <thead class="table-dark">
-        <tr>
-            <th>#ID</th>
-            <th>Titulo</th>
-            <th>Descrição</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($anuncios as $cada)
+    @include('components.actionButton', [
+        'href' => route('anuncios.create'),
+        'text' => 'Novo Anuncio'
+    ])
+
+    <table class="table table-hover table-striped">
+        <thead class="table-dark">
             <tr>
-                <td>{{ $cada->id }}</td>
-                <td> {{ $cada->titulo }} </td>
-                <td>{{ $cada->descricao }}</td>
-                <td>
-                    <a class="btn btn-outline-warning" href="{{ route('anuncios.edit', ['anuncio' => $cada->id]) }}">Editar</a>
-
-
-                    <form 
-                        style="display: inline;"
-                        action="{{ route('anuncios.destroy', $cada->id) }}" 
-                        method="POST"
-                        onsubmit="return confirm('Tem certeza que deseja excluir este anúncio?')"
-                    >
-                        @csrf
-                        @method('DELETE')
-
-                        <button class="btn btn-outline-danger">
-                            Excluir
-                        </button>
-                    </form>
-                </td>
+                <th>#ID</th>
+                <th>Titulo</th>
+                <th>Descrição</th>
+                <th>Ações</th>
             </tr>
-        @endforeach
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach ($anuncios as $cada)
+                <tr>
+                    <td>{{ $cada->id }}</td>
+                    <td> {{ $cada->titulo }} </td>
+                    <td>{{ $cada->descricao }}</td>
+                    <td>
+                        <a class="btn btn-outline-warning" href="{{ route('anuncios.edit', ['anuncio' => $cada->id]) }}">Editar</a>
+
+
+                        <form 
+                            style="display: inline;"
+                            action="{{ route('anuncios.destroy', $cada->id) }}" 
+                            method="POST"
+                            onsubmit="return confirm('Tem certeza que deseja excluir este anúncio?')"
+                        >
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="btn btn-outline-danger">
+                                Excluir
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+@endsection
