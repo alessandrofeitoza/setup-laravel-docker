@@ -6,13 +6,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Anuncio;
 use Illuminate\Http\Request;
+use App\Service\AnuncioService;
 
 class AnuncioController extends Controller
 {
+    public function __construct(
+        private AnuncioService $anuncioService
+    ) {
+    }
+
     public function index(): mixed
     {
         return view('anuncio.list', [
-            'anuncios' => Anuncio::all()
+            'anuncios' => $this->anuncioService->findAll()
         ]); 
     }
 
@@ -29,7 +35,9 @@ class AnuncioController extends Controller
             'preco' => ['required', 'numeric', 'min:0'],
         ]);
 
-        $anuncio = Anuncio::create($dados);
+        $anuncio = new Anuncio($dados);
+
+        $this->anuncioService->save($anuncio);
 
         return redirect()
             ->route('anuncios.index')
@@ -49,7 +57,9 @@ class AnuncioController extends Controller
             'preco' => ['required', 'numeric', 'min:0'],
         ]);
 
-        $anuncio->update($dados);
+        $anuncio->fill($dados);
+
+        $this->anuncioService->save($anuncio);
 
         return redirect()
             ->route('anuncios.index')
@@ -58,7 +68,7 @@ class AnuncioController extends Controller
 
     public function destroy(Anuncio $anuncio)
     {
-        $anuncio->delete();
+        $this->anuncioService->remove($anuncio);
 
         return redirect()
             ->route('anuncios.index')
