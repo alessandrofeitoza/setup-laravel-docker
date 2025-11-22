@@ -10,7 +10,9 @@ class AnuncioController extends Controller
 {
     public function index(): mixed
     {
-        return Anuncio::all(); // SELECT * FROM anuncios;
+        return view('anuncio.list', [
+            'anuncios' => Anuncio::all()
+        ]); 
     }
 }
 
